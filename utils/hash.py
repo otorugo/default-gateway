@@ -11,6 +11,6 @@ def verify(password: str, hashed_password: str):
     return pwd_context.verify(password, hashed_password)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = hash("teste")
     print(a)

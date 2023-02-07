@@ -38,11 +38,8 @@ def decode_acess_token(token: str = None) -> dict:
         return payload
 
 
-if __name__ == '__main__':
-    my_acess = {
-        "name": "torugo",
-        "email": "victorsilva698@gmail.com"
-    }
+if __name__ == "__main__":
+    my_acess = {"name": "torugo", "email": "victorsilva698@gmail.com"}
     token = create_acess_token(my_acess)
 
     result = decode_acess_token(token)

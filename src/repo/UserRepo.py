@@ -3,7 +3,6 @@ from src.repo.BaseRepo import BaseRepo
 
 
 class UserRepo(BaseRepo):
-
     def __init__(self):
         super.__init__()
 

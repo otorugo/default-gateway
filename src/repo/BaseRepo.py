@@ -5,8 +5,9 @@ from connectors.sql import db_connector
 
 
 class BaseRepo:
-
-    def add(self, model: DeclarativeMeta, schema: Schema, data: dict, **kwargs):
+    def add(
+        self, model: DeclarativeMeta, schema: Schema, data: dict, **kwargs
+    ):
         new_data_dict = data.copy()
         final_data = None
         with BaseSession(db_connector) as Session:
