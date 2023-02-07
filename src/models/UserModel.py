@@ -1,6 +1,14 @@
+from enum import Enum
+
 from marshmallow import Schema, fields
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, Enum as SQLEnum
+
 from connectors.sql import db_connector
+
+
+class Roles(Enum):
+    ADMIN = "ADMIN"
+    USER = "USER"
 
 
 class UserModel(db_connector.Base):
@@ -9,6 +17,7 @@ class UserModel(db_connector.Base):
     name = Column(String(60), nullable=False)
     email = Column(String(60), unique=True, nullable=False)
     password = Column(String(80), nullable=False)
+    role = Column(SQLEnum(Roles), nullable=False, default=Roles.USER.value)
     deleted = Column(Boolean, default=False, nullable=False)
 
 
@@ -20,3 +29,11 @@ class UserSchema(Schema):
 
 
 userSchema = UserSchema()
+
+
+class UserToken(Schema):
+    id = fields.Int()
+    email = fields.Str()
+
+
+userToken = UserToken()
