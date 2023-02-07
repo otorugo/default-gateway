@@ -28,7 +28,16 @@ class UserSchema(Schema):
     email = fields.Str()
 
 
+class UserSchemaWithSecret(Schema):
+    id = fields.Int()
+    name = fields.Str()
+    email = fields.Str()
+    password = fields.Str()
+
+
 userSchema = UserSchema()
+userSchemaWithSecret = UserSchemaWithSecret()
+usersSchema = UserSchema(many=True)
 
 
 class UserToken(Schema):
