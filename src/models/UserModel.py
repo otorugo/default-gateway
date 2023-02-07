@@ -26,7 +26,6 @@ class UserSchema(Schema):
     id = fields.Int()
     name = fields.Str()
     email = fields.Str()
-    deleted = fields.Boolean()
 
 
 userSchema = UserSchema()
