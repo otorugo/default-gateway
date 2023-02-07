@@ -19,7 +19,7 @@ class UserModel(db_connector.Base):
     password = Column(String(80), nullable=False)
     role = Column(SQLEnum(Roles), nullable=False, default=Roles.USER.value)
     deleted = Column(Boolean, default=False, nullable=False)
-    # current_token = Column(String(),)
+    current_token = Column(String(181))
 
 
 class UserSchema(Schema):
