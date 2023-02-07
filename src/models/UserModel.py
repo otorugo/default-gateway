@@ -1,6 +1,5 @@
 from marshmallow import Schema, fields
 from sqlalchemy import Column, Integer, String, Boolean
-
 from connectors.sql import db_connector
 
 
@@ -9,7 +8,7 @@ class UserModel(db_connector.Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(60), nullable=False)
     email = Column(String(60), unique=True, nullable=False)
-    password = Column(String, nullable=False)
+    password = Column(String(80), nullable=False)
     deleted = Column(Boolean, default=False, nullable=False)
 
 
